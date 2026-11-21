@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Lichess Best Move Overlay",
+  "version": "1.0.0",
+  "description": "Runs Stockfish locally and draws the best moves as arrows on the Lichess board.",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage", "offscreen"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Best Move Overlay",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "commands": {
+    "toggle-overlay": {
+      "suggested_key": {
+        "default": "Alt+B"
+      },
+      "description": "Toggle the overlay"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://lichess.org/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}

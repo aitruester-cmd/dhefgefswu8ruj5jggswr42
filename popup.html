@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Best Move Overlay</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Best Move Overlay</h1>
+        <label class="switch" title="Enable or disable the overlay">
+          <input type="checkbox" data-key="enabled" />
+          <span></span>
+        </label>
+      </header>
+
+      <section>
+        <label class="row">
+          <input type="checkbox" data-key="showArrows" />
+          <span>Show arrows on the board</span>
+        </label>
+        <label class="row">
+          <input type="checkbox" data-key="showPanel" />
+          <span>Show the evaluation panel</span>
+        </label>
+        <label class="row">
+          <input type="checkbox" data-key="onlyMyTurn" />
+          <span>Only analyze on my turn</span>
+        </label>
+      </section>
+
+      <section>
+        <label class="slider">
+          <span>Search depth <b id="depth-value"></b></span>
+          <input type="range" data-key="depth" />
+        </label>
+        <label class="slider">
+          <span>Moves shown <b id="lines-value"></b></span>
+          <input type="range" data-key="lines" />
+        </label>
+        <label class="slider">
+          <span>Time limit per position (s) <b id="moveTime-value"></b></span>
+          <input type="range" data-key="moveTime" />
+        </label>
+      </section>
+
+      <p class="hint">Toggle with Alt+B. Change the shortcut at edge://extensions/shortcuts.</p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
